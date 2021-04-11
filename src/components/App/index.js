@@ -1,9 +1,12 @@
 import React from 'react';
- 
+import {BrowserRouter as Router} from 'react-router-dom';
+import {withAuthentication} from '../Session';
+import AppRoutes from './AppRoutes';
+
 const App = () => (
-  <div>
-    <h1>App</h1>
-  </div>
+  <Router>
+    <AppRoutes />
+  </Router>
 );
- 
-export default App;
+
+export default withAuthentication(App);
