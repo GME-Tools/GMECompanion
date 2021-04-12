@@ -9,13 +9,11 @@ import { SignIn } from '../Auth';
 import * as ROUTES from '../../constants/routes';
 
 const AppRoutes = () => (
-  <div>
-    <AuthUserContext.Consumer>
-      { authUser =>
-        authUser ? <AppRoutesAuth /> : <AppRoutesNonAuth />
-      }
-    </AuthUserContext.Consumer>
-  </div>
+  <AuthUserContext.Consumer>
+    { authUser =>
+      authUser ? <AppRoutesAuth /> : <AppRoutesNonAuth />
+    }
+  </AuthUserContext.Consumer>
 );
 
 const AppRoutesAuth = () => (
