@@ -22,7 +22,7 @@ class SignInBase extends Component {
   handleSignIn = event => {
     this.props.firebase.doSignIn()
       .then(() => {
-        this.props.history.push(ROUTES.HOME);
+        this.props.history.push(ROUTES.LANDING);
       });
     event.preventDefault();
   }

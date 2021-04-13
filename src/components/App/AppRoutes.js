@@ -3,7 +3,8 @@ import {Route} from 'react-router-dom';
 
 import {AuthUserContext} from '../Session';
 
-import Landing from '../Landing';
+import { CampaignList } from '../Campaign';
+import Dashboard from '../Campaign/Dashboard';
 import { SignIn } from '../Auth';
  
 import * as ROUTES from '../../constants/routes';
@@ -18,7 +19,8 @@ const AppRoutes = () => (
 
 const AppRoutesAuth = () => (
   <React.Fragment>
-    <Route path={ROUTES.LANDING} component={Landing} />
+    <Route exact path={ROUTES.LANDING} component={CampaignList} />
+    <Route exact path={ROUTES.DASHBOARD} component={Dashboard} />
   </React.Fragment>
 );
  

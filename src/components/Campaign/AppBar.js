@@ -1,17 +1,14 @@
 import React, { Component } from 'react';
-import { compose } from 'recompose';
 import { withStyles } from '@material-ui/core/styles';
-import {withAuthorization} from '../Session';
-import {authenticatedCondition} from '../../constants/roles';
 
-import { AppBar, Drawer, IconButton, Toolbar } from '@material-ui/core';
+import { AppBar, Drawer, IconButton, Toolbar, Typography } from '@material-ui/core';
 import { List, ListItem } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import { SignOutButton } from '../Auth';
 
-
 const styles = theme => ({
   appBar: {
+    flexGrow: 1,
     transition: theme.transitions.create(['margin', 'width'], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
@@ -20,19 +17,12 @@ const styles = theme => ({
   menuButton: {
     marginRight: theme.spacing(2),
   },
-  fulllist: {
-    width: '300'
-  },
-  landingcontainer: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    height: '100%'
+  title: {
+    flexGrow: 1
   }
 })
 
-class Landing extends Component {
+class AppBarBase extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -52,7 +42,7 @@ class Landing extends Component {
     const {classes} = this.props;
     return (
       <React.Fragment>
-        <AppBar position="fixed" className={classes.appBar}>
+        <AppBar position ="fixed" className={classes.appBar}>
           <Toolbar>
             <IconButton
               color="inherit"
@@ -62,11 +52,12 @@ class Landing extends Component {
             >
               <MenuIcon />
             </IconButton>
+            <Typography variant="h6" className={classes.title}>{this.props.title}</Typography>
+            {this.props.button}
           </Toolbar>
         </AppBar>
         <Drawer anchor="left" open={this.state.drawerOpen} onClose={this.toggleDrawer(false)}>
           <div
-            className={classes.list}
             role="presentation"
             onClick={this.toggleDrawer(false)}
             onKeyDown={this.toggleDrawer(false)}
@@ -78,15 +69,9 @@ class Landing extends Component {
             </List>
           </div>
         </Drawer>
-        <div className={classes.landingcontainer}>
-          <h1>Landing</h1>
-        </div>
       </React.Fragment>
     );
   }
 }
 
-export default compose(
-  withAuthorization(authenticatedCondition),
-  withStyles(styles)
-)(Landing);
+export default withStyles(styles)(AppBarBase);

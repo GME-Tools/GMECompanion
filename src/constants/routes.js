@@ -1,5 +1,4 @@
 export const LANDING = '/';
 export const SIGN_IN = '/signin';
-export const HOME = '/home';
-export const ACCOUNT = '/account';
-export const ADMIN = '/admin';
+export const CAMPAIGN = '/campaign';
+export const DASHBOARD = CAMPAIGN + '/:id';
