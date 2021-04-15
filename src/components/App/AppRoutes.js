@@ -3,8 +3,7 @@ import {Route} from 'react-router-dom';
 
 import {AuthUserContext} from '../Session';
 
-import { CampaignList } from '../Campaign';
-import Dashboard from '../Campaign/Dashboard';
+import { CampaignList, Dashboard } from '../Campaign';
 import { SignIn } from '../Auth';
  
 import * as ROUTES from '../../constants/routes';

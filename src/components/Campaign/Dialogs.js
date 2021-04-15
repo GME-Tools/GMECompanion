@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Dialog, DialogActions, DialogContent, DialogTitle } from '@material-ui/core';
 import { FormControl, FormControlLabel, FormLabel, Radio, RadioGroup } from '@material-ui/core';
 import { Button, TextField } from '@material-ui/core';
-import rulesets from '../../constants/rulesets';
+import rulesets from '../../rulesets';
 
 const INITIAL_STATE = {
   open: false,

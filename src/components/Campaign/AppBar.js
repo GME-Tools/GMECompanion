@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 
 import { AppBar, Drawer, IconButton, Toolbar, Typography } from '@material-ui/core';
-import { List, ListItem } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
-import { SignOutButton } from '../Auth';
+
 
 const styles = theme => ({
   appBar: {
@@ -20,7 +19,7 @@ const styles = theme => ({
   title: {
     flexGrow: 1
   }
-})
+});
 
 class AppBarBase extends Component {
   constructor(props) {
@@ -62,11 +61,7 @@ class AppBarBase extends Component {
             onClick={this.toggleDrawer(false)}
             onKeyDown={this.toggleDrawer(false)}
           >
-            <List>
-              <ListItem>
-                <SignOutButton />
-              </ListItem>
-            </List>
+            {this.props.drawerlist}
           </div>
         </Drawer>
       </React.Fragment>
